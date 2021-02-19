@@ -299,7 +299,7 @@
                     </button>
                     <ul class="navbar-nav">
                         <li class="nav-item d-flex">
-                            <span class="rounded-circle bg-danger text-white rounded-circle" style="height: 35px; width:35px;"><img src="{{ Auth::user()->profile_photo_url }}" alt="" class="img-fluid rounded-circle"></span>
+                            <span class="rounded-circle bg-danger text-white rounded-circle" style="height: 35px; width:35px;"><img src="{{ Auth::user()->profile_photo_url }}" alt="" class="img-fluid rounded-circle h-100 w-100"></span>
                             <span class="text-center text-white mt-2 ms-2">{{ Auth::user()->name }}</span>
                         </li>
                     </ul>

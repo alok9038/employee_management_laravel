@@ -35,6 +35,7 @@ class EmployeeController extends Controller
             'doc_1'         =>      'required',
             'doc_2'         =>      'required',
             'doc_3'         =>      'required',
+            'sex'         =>      'required',
         ]);
 
         $doc_1 = time() . "." . $request->doc_1->getClientOriginalName();
@@ -67,6 +68,7 @@ class EmployeeController extends Controller
         $employee->city         =   $request->city;
         $employee->state        =   $request->state;
         $employee->pincode      =   $request->pincode;
+        $employee->gender       =   $request->sex;
         $employee->doc_1        =   $doc_1;
         $employee->doc_2        =   $doc_2;
         $employee->doc_3        =   $doc_3;

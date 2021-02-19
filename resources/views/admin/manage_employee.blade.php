@@ -92,6 +92,8 @@
                     <h6 class="text-capitalize">{{ $employee->address }}</h6>
                     <h6 class="text-capitalize">{{ $employee->city }}, {{ $employee->state }}</h6>
                     <h6 class="text-capitalize">{{ $employee->designation }}</h6>
+                    <h6 class="text-danger">Document 1</h6>
+                    <img src="{{ asset('employee_document/'.$employee->doc_3) }}" style="height: 250px; width:100%;" alt="">
                 </div>
             </div>
         </div>
@@ -127,7 +129,27 @@
                 </div>
                 <div class="mb-3">
                     <label for="">Designation</label>
-                    <input type="text" name="designation" class="form-control rounded-0 shadow-none" value="{{ $employee->designation }}">
+                    <select name="city" class="form-control rounded-0 shadow-none" >
+                        <option value="" selected hidden disabled>Select Designation</option>
+                        @if ($employee->designation == 'web developer')
+                        <option value="Web developer" selected>Web developer</option>
+                        <option value="Assistant manager">Assistant manager</option>
+                        <option value="Android Developer">Android Developer</option>
+                        @elseif($employee->designation == 'Android Developer')
+                        <option value="Web developer">Web developer</option>
+                        <option value="Assistant manager">Assistant manager</option>
+                        <option value="Android Developer" selected>Android Developer</option>
+                        @elseif($employee->designation == 'assistant manager')
+                        <option value="Web developer">Web developer</option>
+                        <option value="Assistant manager" selected>Assistant manager</option>
+                        <option value="Android Developer">Android Developer</option>
+                        @else
+                        <option value="Web developer">Web developer</option>
+                        <option value="Assistant manager">Assistant manager</option>
+                        <option value="Android Developer">Android Developer</option>
+                        @endif
+                        
+                    </select>
                 </div>
                 <div class="mb-3">
                     <label for="">Address</label>
