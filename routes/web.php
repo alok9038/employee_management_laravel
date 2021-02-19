@@ -13,7 +13,7 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/employee',[EmployeeController::class,"manage_employee"])->name('manage.employee');
 
-    
+    Route::delete('/delete/{id}',[EmployeeController::class,"delete"])->name('delete');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

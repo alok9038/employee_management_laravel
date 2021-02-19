@@ -26,8 +26,8 @@ class CreateEmployeesTable extends Migration
             $table->string('doc_1');
             $table->string('doc_2');
             $table->string('doc_3');
-            $table->string('doc_4');
-            $table->string('doc_5');
+            $table->string('doc_4')->nullable();
+            $table->string('doc_5')->nullable();
             $table->timestamps();
         });
     }
