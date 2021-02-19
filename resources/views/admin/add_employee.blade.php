@@ -7,7 +7,7 @@
                     <h4 class="fw-light h5">Add Employee</h4>
                 </div>
                 <div class="card-body bg-white">
-                    <form action="" method="POST">
+                    <form action="{{ route('add.employee.insert') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="">Name</label>
@@ -44,6 +44,10 @@
                                 <option value="">Bihar</option>
                                 <option value="">Delhi</option>
                             </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Pincode</label>
+                            <input type="number" name="pincode" id="" class="form-control shadow-none">
                         </div>
                         <div class="mb-3">
                             <label for="">Photo</label>
