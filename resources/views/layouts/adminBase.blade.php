@@ -266,6 +266,15 @@
                 <li>
                     <a href="#"><i class="fa fa-phone me-3"></i> Contact</a>
                 </li>
+                <li>
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        {{-- <input type="submit"><i class="fa text-danger fa-power-off me-3"></i> Logout</input> --}}
+                        <a href="javascript:void(0)" class="login-button"><i class="fa text-danger fa-power-off me-3"></i> Logout</a>
+
+                    </form>
+                    
+                </li>
             </ul>
         </nav>
 
@@ -300,6 +309,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -313,6 +323,14 @@
                 $('a[aria-expanded=true]').attr('aria-expanded', 'false');
             });
         });
+
+        $(document).ready(function(){
+            $(document).on("click",".login-button",function(){
+                var form = $(this).closest("form");
+                //console.log(form);
+                form.submit();
+            });
+            });
     </script>
 </body>
 
