@@ -27,7 +27,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="">Address</label>
-                            <textarea name="address" class="form-control rounded-0 shadow-none" id="" cols="30" rows="10"></textarea>
+                            <textarea name="address" class="form-control rounded-0 shadow-none" id="" cols="30" rows="5"></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="">City</label>
@@ -46,23 +46,23 @@
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="">Document type 1</label>
+                            <label for="">Photo</label>
                             <input type="file" name="doc_1" class="form-control rounded-0 shadow-none">
                         </div>
                         <div class="mb-3">
-                            <label for="">Document type 2</label>
+                            <label for="">Document type 1</label>
                             <input type="file" name="doc_2" class="form-control rounded-0 shadow-none">
                         </div>
                         <div class="mb-3">
-                            <label for="">Document type 3</label>
+                            <label for="">Document type 2</label>
                             <input type="file" name="doc_3" class="form-control rounded-0 shadow-none">
                         </div>
                         <div class="mb-3">
-                            <label for="">Document type 4</label>
+                            <label for="">Document type 3</label>
                             <input type="file" name="doc_4" class="form-control rounded-0 shadow-none">
                         </div>
                         <div class="mb-3">
-                            <label for="">Document type 5</label>
+                            <label for="">Document type 4</label>
                             <input type="file" name="doc_5" class="form-control rounded-0 shadow-none">
                         </div>
                         <div class="mb-3">
