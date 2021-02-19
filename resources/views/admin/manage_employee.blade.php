@@ -5,7 +5,7 @@
             <div class="card border-0 shadow-none bg-transparent">
                 <div class="card-header bg-transparent row ">
                     <div class="col-lg-3 pt-2">
-                        <h4 class="h5 text-center text-dark">Manage employee</h4>
+                        <h4 class="h5 text-center text-dark">Manage Employee</h4>
                     </div>
                     <div class="col mb-3">
                         <form action="" method="get">
@@ -52,7 +52,7 @@
                                 <td class="">
                                     <div class="btn-group">
                                         <a type="button" class="btn btn-info btn-sm text-white" title="view" data-bs-toggle="modal" data-bs-target="#exampleModal_{{ $employee->id }}"><i class="fa fa-eye"></i></a>
-                                        <a href="{{ route('delete',['id'=>$employee->id]) }}" class="btn btn-primary btn-sm" title="edit"><i class="fa fa-edit"></i></a>
+                                        <a  class="btn btn-primary btn-sm" title="edit" data-bs-toggle="modal" data-bs-target="#edit_{{ $employee->id }}"><i class="fa fa-edit"></i></a>
                                         <form action="{{ route('delete',['id'=>$employee->id]) }}" method="post">
                                             @csrf
                                             @method('delete')
@@ -72,6 +72,7 @@
 
   
   <!-- Modal -->
+  @foreach ($employees as $employee)
   <div class="modal fade" id="exampleModal_{{ $employee->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg rounded-0">
       <div class="modal-content rounded-0 border-0">
@@ -97,5 +98,79 @@
       </div>
     </div>
   </div>
+  @endforeach
+
+  @foreach ($employees as $employee)
+  <div class="modal fade" id="edit_{{ $employee->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg rounded-0">
+      <div class="modal-content rounded-0 border-0">
+        <div class="modal-header border-0">
+          <h5 class="modal-title text-uppercase " id="exampleModalLabel">Update Records</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body border-0">
+            <form action="{{ route('edit',['id'=>$employee->id]) }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="mb-3">
+                    <label for="">Name</label>
+                    <input type="text" name="name" class="form-control rounded-0 shadow-none" value="{{ $employee->name }}">
+                </div>
+                <div class="row">
+                    <div class="mb-3 col">
+                        <label for="">Contact</label>
+                        <input type="text" name="contact" class="form-control rounded-0 shadow-none" value="{{ $employee->contact }}">
+                    </div>
+                    <div class="mb-3 col">
+                        <label for="">Email</label>
+                        <input type="email" name="email" class="form-control rounded-0 shadow-none" value="{{ $employee->email }}">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="">Designation</label>
+                    <input type="text" name="designation" class="form-control rounded-0 shadow-none" value="{{ $employee->designation }}">
+                </div>
+                <div class="mb-3">
+                    <label for="">Address</label>
+                    <textarea name="address"  class="form-control rounded-0 shadow-none" id="" cols="30" rows="5">{{ $employee->address}}</textarea>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col">
+                        <label for="">City</label>
+                        <select name="city" class="form-control rounded-0 shadow-none" required>
+                            <option value="" selected hidden disabled>Select City</option>
+                            <option value="purnea">Purnea</option>
+                            <option value="patna">patna</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 col">
+                        <label for="">State</label>
+                        <select name="state" class="form-control rounded-0 shadow-none" required>
+                            <option value="" selected hidden disabled>Select State</option>
+                            <option value="bihar">Bihar</option>
+                            <option value="delhi">Delhi</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 col">
+                        <label for="">Pincode</label>
+                        <input type="number" name="pincode" value="{{ $employee->pincode }}" id="" class="form-control shadow-none" value="{{ old("pincode") }}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2"><img src="{{ asset('employee_photo/'.$employee->doc_1) }}" style="height:70px; width:70px;" class="img-fluid rounded-circle"></div>
+                    <div class="mb-3 col">
+                        <label for="">Photo <span class="text-danger">*</span></label>
+                        <input type="file" name="doc_1" class="form-control rounded-0 shadow-none">
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <input type="submit" value="Update" class="btn btn-info w-100 px-4 rounded-0 float-end">
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endforeach
 <!-- JavaScript Bundle with Popper -->
 @endsection

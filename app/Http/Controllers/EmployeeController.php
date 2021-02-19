@@ -15,7 +15,8 @@ class EmployeeController extends Controller
     }
 
     public function index(){
-        return view('admin.dashboard');
+        $data['count'] = Employee::get();
+        return view('admin.dashboard',$data);
 
     }
     public function add_employee(){
@@ -93,4 +94,28 @@ class EmployeeController extends Controller
 
     }  
     
+    public function edit(Request $request, $id){
+
+        if($request->hasFile('doc_1')){ 
+            $doc_1 = time() . "." . $request->doc_1->getClientOriginalName();
+            $request->doc_1->move(public_path("employee_document"),$doc_1);
+        }
+
+
+        $emp_update = Employee::find($id);
+        $emp_update->name = $request->name;
+        $emp_update->contact = $request->contact;
+        $emp_update->email = $request->email;
+        $emp_update->designation = $request->designation;
+        $emp_update->address = $request->address;
+        $emp_update->state = $request->state;
+        $emp_update->city = $request->city;
+        $emp_update->pincode = $request->pincode;
+        if($request->hasFile('doc_1')){ 
+            $employee->doc_1       =   $doc_1;
+        }
+        $emp_update->save();
+        
+        return redirect()->back();
+    }
 }
