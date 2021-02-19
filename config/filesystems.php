@@ -37,8 +37,8 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' =>  base_path('/public/storage'),
-            'url' => env('APP_URL').'/storage',
+            'root' =>  base_path('/public/admin_profile'),
+            'url' => env('APP_URL').'/admin_profile',
             'visibility' => 'public',
         ],
 
