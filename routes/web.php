@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
 
+Route::get('/',[EmployeeController::class,"index"])->name('admin.dashboard');
 Route::prefix('admin')->group(function () {
     
     Route::get('/',[EmployeeController::class,"index"])->name('admin.dashboard');
