@@ -75,7 +75,6 @@
                             @enderror
                             <form method="POST" action="{{ route('login') }}" class="py-3">
                                 @csrf
-                    
                                 <div>
                                     <label for="email">Email</label>
                                     <div class="input-group">
